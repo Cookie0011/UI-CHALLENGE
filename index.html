@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#07111f" />
+  <title>RailReady | Train Assistant Assessment Mock</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand"><span class="brand-mark">RR</span><div><strong>RailReady</strong><small>Assessment Practice Lab</small></div></div>
+    <div class="top-actions"><span id="timerPill" class="timer hidden">--:--</span><button id="themeBtn" class="icon-btn" aria-label="Toggle theme">☾</button></div>
+  </header>
+
+  <main id="app">
+    <section id="home" class="screen active">
+      <div class="hero">
+        <div class="eyebrow">TRAIN ASSISTANT • PRACTICE ENVIRONMENT</div>
+        <h1>Prepare for the <span>Ability & VTS-style</span> assessment.</h1>
+        <p>Timed practice for attention, memory, reasoning, numerical ability, spatial thinking, reaction speed and work-style questions.</p>
+        <div class="notice"><strong>Practice only.</strong> This is an unofficial mock assessment and is not affiliated with Transnet, PRASA, Metrorail, a testing provider, or any railway employer.</div>
+        <button class="primary big" onclick="showScreen('modules')">Start assessment →</button>
+      </div>
+      <div class="stats"><div><b>7</b><span>modules</span></div><div><b>60+</b><span>practice items</span></div><div><b>Timed</b><span>realistic pacing</span></div><div><b>Instant</b><span>feedback</span></div></div>
+      <div class="feature-grid">
+        <article><span>◎</span><h3>Concentration</h3><p>Spot target symbols while filtering distractions.</p></article>
+        <article><span>↯</span><h3>Reaction</h3><p>Train fast, accurate responses to visual cues.</p></article>
+        <article><span>◆</span><h3>Reasoning</h3><p>Sequences, patterns and practical logic.</p></article>
+        <article><span>◫</span><h3>Memory</h3><p>Recall sequences, locations and instructions.</p></article>
+      </div>
+    </section>
+
+    <section id="modules" class="screen">
+      <div class="section-head"><div><div class="eyebrow">ASSESSMENT CENTRE</div><h2>Choose a practice module</h2><p>Start with a single skill or run the full mock.</p></div><button class="ghost" onclick="showScreen('home')">← Home</button></div>
+      <div class="module-grid" id="moduleGrid"></div>
+      <button class="primary full" onclick="startFullMock()">Run full mock assessment</button>
+    </section>
+
+    <section id="test" class="screen">
+      <div class="testbar"><div><span id="moduleLabel">Module</span><strong id="questionCount">Question 1</strong></div><div class="progress"><i id="progressBar"></i></div><button class="ghost" onclick="quitTest()">Exit</button></div>
+      <div class="test-card"><div class="question-meta" id="questionMeta"></div><h2 id="questionText"></h2><div id="questionVisual" class="visual"></div><div id="answers" class="answers"></div><div class="test-foot"><span id="feedback"></span><button id="nextBtn" class="primary" onclick="nextQuestion()" disabled>Continue →</button></div></div>
+    </section>
+
+    <section id="results" class="screen">
+      <div class="result-hero"><div class="eyebrow">SESSION COMPLETE</div><h2 id="resultTitle">Your practice results</h2><div class="score-ring"><span id="scorePct">0%</span><small>accuracy</small></div><p id="resultSummary"></p></div>
+      <div id="resultBreakdown" class="breakdown"></div>
+      <div class="result-actions"><button class="primary" onclick="showScreen('modules')">Practice another module</button><button class="ghost" onclick="showScreen('home')">Back to home</button></div>
+    </section>
+  </main>
+  <footer>RailReady © 2026 • Unofficial practice tool • Results stay in your browser</footer>
+  <script src="app.js"></script>
+</body>
+</html>
